@@ -1,0 +1,37 @@
+﻿@model List< AspPractice.Models.Domain.Dept>
+@{
+}
+
+<h1>List of Depts</h1>
+
+@if( Model!=null && Model.Any()){
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var dept in Model)
+            {
+                <tr>
+                    <td>@dept.Id</td>
+                    <td>@dept.Name</td>
+                    <td>
+                        <a asp-area=""
+                           asp-controller="Dept"
+                           asp-action="Edit"
+                           asp-route-id="@dept.Id">Edit</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No Depts found</p>
+}

@@ -1,0 +1,30 @@
+﻿@model List<AspPractice.Models.ViewModels.EmplyDetailsViewModel>
+@{
+}
+<h1>All Employees</h1>
+@if (Model !=null && Model.Any())
+{
+    <table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>DeptName</th>
+        <th>Edit</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.DeptName</td>
+            <td>
+                <a asp-area="" asp-controller="Emply" asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
+            </td>
+        </tr>
+    }
+    </table>
+}
+else
+{
+    <p>No Employees</p>
+}
